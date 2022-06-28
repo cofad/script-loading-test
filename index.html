@@ -22,10 +22,28 @@
     </script>
 
     <script
-      src="http://127.0.0.1:8125/adobe.js"
-      onload="onAdobeLoad()"
+      src="http://127.0.0.1:8125/pre-adobe.js"
       async
+      onload="loadAdobe()"
+      onerror="loadAdobe()"
     ></script>
+
+    <script>
+      function loadAdobe() {
+        try {
+          console.log("Loading adobe.js");
+
+          const script = document.createElement("script");
+          script.id = "two_script";
+          script.src = "http://127.0.0.1:8125/adobe.js";
+          script.async = true;
+          script.onLoad = onAdobeLoad;
+          document.body.appendChild(script);
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    </script>
 
     <script src="http://127.0.0.1:8125/vendor.js" defer></script>
     <script src="http://127.0.0.1:8125/main.js" defer></script>
