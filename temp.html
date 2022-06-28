@@ -1,0 +1,25 @@
+<script src="http://127.0.0.1:8125/one.js" async></script>
+
+<script
+  src="http://127.0.0.1:8125/one.js"
+  async
+  onload="loadTwo()"
+  onerror="loadTwo()"
+></script>
+
+<script>
+  function loadTwo() {
+    try {
+      console.log("Loading Two");
+
+      const script = document.createElement("script");
+      script.id = "two_script";
+      script.src = "http://127.0.0.1:8125/two.js";
+      script.async = true;
+      script.onLoad = onTwoLoad;
+      document.body.appendChild(script);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+</script>
