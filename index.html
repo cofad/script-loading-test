@@ -13,8 +13,8 @@
       try {
         console.clear();
 
-        function onTwoLoad() {
-          console.log("Two has loaded");
+        function onAdobeLoad() {
+          console.log("Adobe has loaded");
         }
       } catch (e) {
         console.error(e);
@@ -22,11 +22,12 @@
     </script>
 
     <script
-      src="http://127.0.0.1:8125/two.js"
-      onload="onTwoLoad()"
+      src="http://127.0.0.1:8125/adobe.js"
+      onload="onAdobeLoad()"
       async
     ></script>
 
+    <script src="http://127.0.0.1:8125/vendor.js" defer></script>
     <script src="http://127.0.0.1:8125/main.js" defer></script>
   </body>
 </html>
